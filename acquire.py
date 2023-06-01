@@ -69,3 +69,32 @@ def star_wars(endpoint, key_name):
         df.to_csv(f"{endpoint.strip('/')}.csv")
         
     return df
+
+def germany_energy():
+    """This function loads or writes a CSV file from a hardcoded URL
+    ---
+    Format: df = function()
+    """
+    if os.path.isfile(f"germany.csv"):
+        df = pd.read_csv(f"germany.csv", index_col=0)
+        print(f"CSV File Found, Loading...")
+        
+    else:
+        print(f"CSV Not Found, Writing Data to CSV...")
+        df = pd.read_csv("https://raw.githubusercontent.com/jenfly/opsd/master/opsd_germany_daily.csv")
+        
+        # write to csv
+        df.to_csv(f"germany.csv")
+        
+    return df
+
+def superstore():
+    """This function loads or writes a CSV file from a hardcoded URL
+    ---
+    Format: df = function()
+    """
+    if os.path.isfile(f"ts_superstore.csv"):
+        df = pd.read_csv(f"ts_superstore.csv", index_col=0)
+        print(f"CSV File Found, Loading...")
+        
+    return df
